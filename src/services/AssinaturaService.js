@@ -18,7 +18,7 @@ export const fetchAssinaturas = async () => {
 export const criarAssinatura = async (assinatura) => {
   try {
     const token = sessionStorage.getItem('token');
-    const response = await api.post('/', assinatura, {
+    const response = await api.post('/assinaturas', assinatura, {
       headers: {
         'Authorization': `Bearer ${token}`
       }
