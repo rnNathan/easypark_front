@@ -67,25 +67,28 @@ export function Relatorio() {
               </thead>
               <tbody>
                 {relatoriosFiltrados.length > 0 ? (
-                  relatoriosFiltrados.map((relatorio) => (
-                    <tr key={relatorio.id}>
-                      {tipoRelatorio === 'fechados' ? (
-                        <>
-                          <td>{relatorio.id}</td>
-                          <td>{relatorio.placaVeiculo || 'N/A'}</td>
-                          <td>{relatorio.tipoTicket}</td>
-                          <td>R$ {relatorio.valorTotalPagar ? relatorio.valorTotalPagar.toFixed(2) : '0.00'}</td>
-                        </>
-                      ) : (
-                        <>
-                          <td>{relatorio.id}</td>
-                          <td>{relatorio.placaVeiculo}</td>
-                          <td>{relatorio.tipoTicket}</td>
-                          <td>{relatorio.tipoVeiculo}</td>
-                        </>
-                      )}
-                    </tr>
-                  ))
+                  relatoriosFiltrados.map((relatorio) => {
+                    console.log('Relatório:', relatorio);
+                    return (
+                      <tr key={relatorio.id}>
+                        {tipoRelatorio === 'fechados' ? (
+                          <>
+                            <td>{relatorio.id}</td>
+                            <td>{relatorio.placaVeiculo || 'N/A'}</td>
+                            <td>{relatorio.tipoTicket}</td>
+                            <td>R${relatorio.valorTotalPagar ? relatorio.valorTotalPagar.toFixed(2) : '0.00'}</td>
+                          </>
+                        ) : (
+                          <>
+                            <td>{relatorio.id}</td>
+                            <td>{relatorio.placaVeiculo}</td>
+                            <td>{relatorio.tipoTicket}</td>
+                            <td>{relatorio.tipoVeiculo}</td>
+                          </>
+                        )}
+                      </tr>
+                    );
+                  })
                 ) : (
                   <tr>
                     <td colSpan="4" className="text-center">Nenhum relatório encontrado</td>
