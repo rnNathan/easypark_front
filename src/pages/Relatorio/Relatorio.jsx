@@ -3,7 +3,6 @@ import { SidebarMenu } from '../../components/sidebarMenu/SidebarMenu';
 import { RelatorioBase } from '../../components/RelatorioBase/RelatorioBase';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { listarRelatorios, listarTicketsAbertos } from '../../services/RelatorioService';
-import './Relatorio.css';
 
 export function Relatorio() {
   const [relatorios, setRelatorios] = useState([]);
