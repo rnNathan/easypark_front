@@ -9,7 +9,7 @@ export const listarAcessos = async () => {
         'Content-Type': 'application/json'
       }
     });
-    return response.data;
+    return response.data; 
   } catch (error) {
     console.error('Erro ao listar acessos:', error);
     throw error;
@@ -21,7 +21,7 @@ export const listarAcessosPorTipo = async (tipo) => {
   try {
     const response = await api.get(`/acesso/tipo?tipo=${tipo}`, {
       headers: {
-        'Authorization': `Bearer ${token}`,
+        'Authorization': `Bearer ${token}`, 
         'Content-Type': 'application/json'
       }
     });
