@@ -5,6 +5,7 @@ import { FiArrowLeft } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import { criarPlano } from "../../services/PlanoService";
 import "./plano.css";
+import { formatCurrency } from '../../utils/formatCurrency';
 
 export function Plano() {
   const navigate = useNavigate();
@@ -70,11 +71,10 @@ export function Plano() {
             <div className="form-group">
               <label>Valor do Plano</label>
               <input
-                type="number"
+                type="text"
                 placeholder="Valor do Plano"
-                value={valorPlano}
-                onChange={(e) => setValorPlano(e.target.value)}
-                step="0.01"
+                value={valorPlano ? formatCurrency(valorPlano) : ''}
+                onChange={(e) => setValorPlano(e.target.value.replace(/[R$ ]/g, '').replace(',', '.'))}
                 className="form-input"
                 required
               />
