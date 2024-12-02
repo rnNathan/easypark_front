@@ -4,26 +4,34 @@ import { SidebarMenu } from "../../components/sidebarMenu/SidebarMenu";
 import { FiArrowLeft } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import { criarPlano } from "../../services/PlanoService";
-import "./plano.css";
 import { formatCurrency } from '../../utils/formatCurrency';
+import "./plano.css";
 
 export function Plano() {
   const navigate = useNavigate();
   const [tipoPlano, setTipoPlano] = useState('INTEGRAL');
   const [tipoVeiculo, setTipoVeiculo] = useState('CARRO');
   const [valorPlano, setValorPlano] = useState('');
+  const [valorPlanoDisplay, setValorPlanoDisplay] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const novoPlano = {
       tipoPlano,
       tipoVeiculo,
-      valorPlano: parseFloat(valorPlano)
+      valorPlano: parseFloat(valorPlano.replace(',', '.'))
     };
     criarPlano(novoPlano);
     setTipoPlano('INTEGRAL');
     setTipoVeiculo('CARRO');
     setValorPlano('');
+    setValorPlanoDisplay('');
+  };
+
+  const handleValorChange = (e) => {
+    const value = e.target.value.replace(/[R$ ]/g, '');
+    setValorPlano(value);
+    setValorPlanoDisplay(formatCurrency(value));
   };
 
   return (
@@ -73,8 +81,8 @@ export function Plano() {
               <input
                 type="text"
                 placeholder="Valor do Plano"
-                value={valorPlano ? formatCurrency(valorPlano) : ''}
-                onChange={(e) => setValorPlano(e.target.value.replace(/[R$ ]/g, '').replace(',', '.'))}
+                value={valorPlanoDisplay}
+                onChange={handleValorChange}
                 className="form-input"
                 required
               />
