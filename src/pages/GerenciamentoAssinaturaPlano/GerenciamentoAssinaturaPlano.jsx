@@ -119,7 +119,7 @@ export function GerenciamentoAssinaturaPlano() {
                 {assinaturasFiltradas.map((assinatura) => (
                   <tr key={assinatura.id}>
                     <td>{assinatura.usuarioDTO?.email || 'N/A'}</td>
-                    <td>{`${assinatura.planoDTO?.tipoPlano} - ${assinatura.planoDTO?.tipoVeiculo}` || 'N/A'}</td>
+                    <td>{${assinatura.planoDTO?.tipoPlano} - ${assinatura.planoDTO?.tipoVeiculo} || 'N/A'}</td>
                     <td>{new Date(assinatura.dataPagamento).toLocaleDateString('pt-BR')}</td>
                     <td>{new Date(assinatura.dataVencimento).toLocaleDateString('pt-BR')}</td>
                     <td>
