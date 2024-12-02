@@ -14,6 +14,7 @@ export function Relatorio() {
     const carregarRelatorios = async () => {
       try {
         const data = tipoRelatorio === 'fechados' ? await listarRelatorios() : await listarTicketsAbertos();
+        console.log('Dados carregados:', data);
         setRelatorios(data);
       } catch (error) {
         console.error('Erro ao carregar relatórios:', error);
@@ -24,7 +25,7 @@ export function Relatorio() {
   }, [tipoRelatorio]);
 
   const relatoriosFiltrados = relatorios.filter(relatorio => 
-    relatorio.placaVeiculo && relatorio.placaVeiculo.toLowerCase().includes(searchTerm.toLowerCase())
+    relatorio.placaVeiculo ? relatorio.placaVeiculo.toLowerCase().includes(searchTerm.toLowerCase()) : false
   );
 
   return (
