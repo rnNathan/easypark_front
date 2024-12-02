@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button } from "../../components/button/button";
 import { fetchUsuarios } from "../../services/AssinaturaService";
 import { criarVeiculo } from "../../services/VeiculoService";
-import "./veiculo.css";
+import "./Veiculo.css";
 import { SidebarMenu } from "../../components/sidebarMenu/SidebarMenu";
 import { FiArrowLeft } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
