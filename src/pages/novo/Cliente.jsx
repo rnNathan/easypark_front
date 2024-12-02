@@ -4,7 +4,7 @@ import { FiArrowLeft, FiSave } from 'react-icons/fi';
 import { Button } from '../../components/button/button';
 import { Card } from '../../components/card/Card';
 import { SidebarMenu } from '../../components/sidebarMenu/SidebarMenu';
-import './cliente.css';
+import './Cliente.css';
 import { criarCliente } from '../../services/ClienteService';
 
 export function Cliente() {
