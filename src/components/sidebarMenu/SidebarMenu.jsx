@@ -14,7 +14,7 @@ import {
   FiClipboard,
   FiLock,
 } from "react-icons/fi";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/Logo.png";
 import { AuthContext } from "../../context/AuthContext";
 import "./SidebarMenu.css";
 
